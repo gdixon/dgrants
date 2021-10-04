@@ -163,7 +163,6 @@ import BaseImageUpload from 'src/components/BaseImageUpload.vue';
 import BaseTextarea from 'src/components/BaseTextarea.vue';
 import TransactionStatus from 'src/components/TransactionStatus.vue';
 // --- Store ---
-import useDataStore from 'src/store/data';
 import useWalletStore from 'src/store/wallet';
 // --- Methods and Data ---
 import { LOREM_IPSOM_TEXT } from 'src/utils/constants';
@@ -172,7 +171,6 @@ import * as ipfs from 'src/utils/data/ipfs';
 
 function useNewGrant() {
   const { signer, grantRegistry, isCorrectNetwork } = useWalletStore();
-  const { poll } = useDataStore();
 
   const txHash = ref<string>();
   const grantId = ref<string>();
@@ -243,7 +241,7 @@ function useNewGrant() {
 
     grantId.value = log.args.id;
     // Poll so the store has the latest data, then navigate to the grant page
-    await poll();
+    // await poll();
   }
 
   return {

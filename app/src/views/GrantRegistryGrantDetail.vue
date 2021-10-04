@@ -304,7 +304,6 @@ import { Edit3Icon as EditIcon } from '@fusion-icons/vue/interface';
 function useGrantDetail() {
   // --- get current state ---
   const {
-    poll,
     grants,
     grantMetadata: metadata,
     grantRounds: rounds,
@@ -559,7 +558,7 @@ function useGrantDetail() {
 
     // After tx mines, poll so the store has the latest data, then navigate to the grant page
     await tx.wait();
-    await poll();
+    // await poll();
   };
 
   /**
